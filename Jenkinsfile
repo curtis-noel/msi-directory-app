@@ -3,18 +3,21 @@ node {
 
             checkout scm
 
-            docker.image('ruby:2.4.1').inside {
+            docker.image('ruby:2.3.1').inside {
 
               stage("Install Bundler") {
                 sh "gem install bundler --no-rdoc --no-ri"
+
               }
 
               stage("Use Bundler to install dependencies") {
+                sh "set RAILS_ENV=development"
                 sh "bundle install"
+                sh "rake db:drop && rake db:create && rake db:migrate && rake db:seed"
               }
 
               stage("Build package") {
-                sh "bundle exec rake build:deb"
+                sh "bundle exec rails s -b 127.0.0.1 -p 3000"
               }
 
               stage("Archive package") {
