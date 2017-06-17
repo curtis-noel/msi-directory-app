@@ -17,7 +17,7 @@ node {
               }
 
               stage("Build package") {
-                sh "rake build:deb"
+                sh "rake build"
               }
 
               stage("archive package") {
