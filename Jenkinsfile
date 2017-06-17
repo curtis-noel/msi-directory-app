@@ -2,7 +2,7 @@ node {
         stage("build") {
             checkout scm
 
-            docker.image('ruby:2.4.1').inside {
+            docker.image('ruby:2.3.1').inside {
               stage("install bundler") {
                 sh "gem install bundler --no-rdoc --no-ri"
               }
