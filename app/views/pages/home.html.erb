@@ -1,0 +1,62 @@
+<% provide(:title, "Home") %>
+<% content_for(:header_title, "Home") %>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12">
+      <h1 style="text-align:center; margin:0;">Minority Serving Institutions</h1>
+
+      <% if @notice.length > 0 %>
+        <div class="panel panel-default" style="margin:12px 0 12px 0;">
+          <div class="panel-body">
+            <% @notice.each do |n| %>
+              <%= n.content.html_safe %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+      <%= render "partials/institution_selectors", :regions => @regions, :states => @states, :institutions => @institutions, :groupings => @groupings %>
+    </div>
+  </div>
+
+  <div class="row device-hide" id="map_row">
+    <div id="clicked-state"></div>
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div id="map" class="map_img"></div>
+          <!-- <div id="map" class="map_lg" style="margin:0 auto; width:1000px; height:670px;"></div> -->
+          <!-- <div id="map" class="map_med" style="margin:0 auto; width:800px; height:536px;"></div>
+          <div id="map" class="map_sm" style="margin:0 auto; width:600px; height:400px;"></div> -->
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<script>
+  function drawMaps() {
+    $('.map_img').usmap({
+      stateStyles: {fill: '#ccc'},
+      stateHoverStyles: {fill: '#fff'},
+      showLabels: true,
+      stateSpecificStyles: {
+        <% @states.each do |s| %>'<% if institution_count(s.id) > 0 %><%= s.abbreviation %><% end %>': {fill: '#FFFF80'}, <% end %>
+        'XX': {fill: ''},
+      },
+
+      click: function(event, data) {
+        location.href = '/list?state_abbrev=' + data.name;
+      }
+    });
+  }
+
+  drawMaps();
+</script>

@@ -1,0 +1,41 @@
+<div class="container">
+  
+  <h1>Edit Account</h1>
+
+  <p>Vestibulum id dapibus enim. Cras sed bibendum ante, sed placerat erat. Donec pulvinar ligula mi, sed gravida ante placerat aliquet. Pellentesque sed aliquet turpis, in rutrum sapien. Sed at leo dui. Nunc vehicula orci eget pulvinar hendrerit.</p>
+
+  <div class="form-container">
+   
+    <div class="panel panel-default form-container">
+      <div class="panel-heading">
+        <h3 class="panel-title">Update Email Address / Password</h3>
+      </div>
+      <div class="panel-body">
+        
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="field form-group"><%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, :class => "form-control" %></div>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+
+          <div class="field form-group"><%= f.label :password, "New Password" %> <i>(leave blank if you don't want to change it)</i><br />
+            <%= f.password_field :password, autocomplete: "off", :class => "form-control" %></div>
+
+          <div class="field form-group"><%= f.label :password_confirmation, "New Password Again" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %></div>
+
+          <div class="field form-group"><%= f.label :current_password, "Current Password" %><br />
+            <%= f.password_field :current_password, autocomplete: "off", :class => "form-control" %></div>
+
+          <div><%= f.submit "Update Account" %></div>
+        <% end %>
+
+      </div>
+    </div>
+
+  </div>
+</div>

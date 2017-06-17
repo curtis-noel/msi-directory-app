@@ -1,0 +1,43 @@
+
+<div class="form-group" style="text-align:center;">
+
+  <div class="row">
+    <div class="col-md-3">
+      <label for="grouping_filter">Filter by Grouping</label>
+      <select name="grouping_filter" id="grouping_filter" class="form-control" size="1" onkeypress="handleLookupFilter(this.value,'group');" alt="grouping filter" title="grouping filter">
+        <option value="">Select a Grouping</option>
+        <% groupings.each do |g| %>
+          <option <% if @grouping_id == g.id %>selected="selected"<% end %> value="<%= g.id %>"><%= g.name %> (<%= g.total %>)</option>
+        <% end %>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label for="region_filter">Filter by Region</label>
+      <select name="region_filter" id="region_filter" class="form-control" size="1" onkeypress="handleLookupFilter(this.value,'region');" alt="region filter" title="region filter">
+        <option value="">Select a Region</option>
+        <% regions.each do |r| %>
+          <option <% if @region_id == r.id %>selected="selected"<% end %> value="<%= r.id %>"><%= r.name %> (<%= r.total %>)</option>
+        <% end %>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label for="state_filter">Filter by State</label>
+      <select name="state_filter" id="state_filter" class="form-control" size="1" onkeypress="handleLookupFilter(this.value,'state');" alt="state filter" title="state filter">
+        <option value="">Select a State</option>
+        <% states.each do |s| %>
+          <option <% if @state_id == s.id || (@state_abbrev == s.abbreviation) %>selected="selected"<% end %> value="<%= s.id %>"><%= s.name %> (<% if institution_count(s.id) > 0 %><%= institution_count(s.id) %><% else %>0<% end %>)<!--(<%# s.total %>)--></option>
+        <% end %>
+      </select> 
+    </div>
+    <div class="col-md-3">
+      <label for="inst_filter">Filter by Institution</label>
+      <select name="inst_filter" id="inst_filter" class="form-control" size="1" onkeypress="handleLookupFilter(this.value,'inst');" alt="institution filter" title="institution filter">
+        <option value="">Select an Institution</option>
+        <% institutions.each do |i| %>
+          <option <% if @inst_id == i.id %>selected="selected"<% end %> value="<%= i.id %>"><%= i.name %></option>
+        <% end %>
+      </select>
+    </div>
+  </div>
+  
+</div>

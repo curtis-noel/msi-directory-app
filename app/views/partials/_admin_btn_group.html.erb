@@ -1,0 +1,8 @@
+<div>
+  <div>
+    <%= link_to("Back", eval("#{back_url}_path"), {:class => "btn btn-primary"}) %>
+    <% if new == true %>
+      <%= link_to("Create new #{new_url.singularize}", "#{new_url}/new", {:class => "btn btn-primary", :role => "button"}) %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,129 @@
+<% provide(:title, create_page_title(@grouping, @state, @region, @institutions, @inst_id)) %>
+<% content_for(:header_title, create_page_title(@grouping, @state, @region, @institutions, @inst_id)) %>
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12">
+      <h1 style="text-align:center; margin:0;">Minority Serving Institutions</h1>
+
+
+      <% if @grouping && !@grouping.nil? %>
+        <% @grouping.each do |g| %>
+          <h2 style="text-align:center; margin-top:4px;">
+            <i class="glyphicon glyphicon-folder-open" style="font-size:72%;"></i>
+            <%= g.name %> Institutions
+          </h2>
+        <% end %>
+      <% elsif @state && !@state.nil? %>
+        <% @state.each do |s| %>
+          <h2 style="text-align:center; margin-top:4px;">
+            <i class="glyphicon glyphicon-map-marker" style="font-size:72%;"></i>
+            <%= s.name %> Institutions
+          </h2>
+        <% end %>
+      <% elsif @region && !@region.nil? %>
+        <% @region.each do |s| %>
+          <h2 style="text-align:center; margin-top:4px;">
+            <i class="glyphicon glyphicon-map-marker" style="font-size:72%;"></i>
+            <%= s.name %> Institutions
+          </h2>
+        <% end %>
+      <% elsif @institutions && !@institutions.nil? %>
+        <% @institutions.each do |i| %>
+          <% if @inst_id == i.id %>
+            <h2 style="text-align:center; margin-top:4px;">
+              <i class="glyphicon glyphicon-map-marker" style="font-size:72%;"></i>
+              <%= i.name %> Institutions
+            </h2>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <%= render "partials/institution_selectors", :regions => @regions, :states => @states, :institutions => @institutions, :groupings => @groupings %>
+    </div>
+  </div>
+
+  <div class="row" id="institution-list">
+    <div class="col-md-12">
+
+      <% if @insts.length < 1 %>
+        <h2 style="margin:18px 0; text-align:center;">
+          No Institutions Found
+        </h2>
+        <hr>
+      <% else %>
+
+        <div class="row">
+
+          <% iterator = 0 %>
+          <% @insts.each_with_index do |i, ctr| %>
+
+            <!-- SECTION HEADERS -->
+            <% if i.uscis && !@uscis_title_shown %>
+              <% if ctr != 0 %></div><div class="row"><% end %><div class="col-md-12"><h1 class="list-header">USCIS</h1></div></div><div class="row">
+
+              <% @uscis_title_shown = true %>
+              <% iterator = 0 %>
+            <% end %>
+
+            <% if !@grouping && @group_title != i.group_name %>
+              <% if ctr != 0 %></div><div class="row"><% end %><div class="col-md-12"><h2 class="list-header"><% if i.group_name.nil? %>NO GROUP<% else %><%= i.group_name %><% end %></h2></div></div><div class="row">
+
+              <% @group_title = i.group_name %>
+              <% iterator = 0 %>
+            <% end %>
+
+            <% if @grouping && !@region && !@state && @region_title != i.region_name %>
+              <% if ctr != 0 %></div><div class="row"><% end %><div class="col-md-12"><h2 class="list-header"><%= i.region_name %></h2></div></div><div class="row">
+
+              <% @region_title = i.region_name %>
+              <% iterator = 0 %>
+            <% end %>
+
+            <% if !@state && @state_title != i.state_name %>
+              <% if ctr != 0 %></div><div class="row"><% end %><div class="col-md-12"><h3 class="listing-divider"><%= i.state_name %></h3></div></div><div class="row">
+
+              <% @state_title = i.state_name %>
+              <% iterator = 0 %>
+            <% end %>
+
+
+
+
+            <div class="col-md-6">
+
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">
+                    <strong><%= i.name %></strong>
+                  </h3>
+                </div>
+                <div class="panel-body">
+                  <% if i.email.length > 0 %>
+                    Email: <a href="mailto:<%= i.email %>" title="Send Email"><%= i.email %></a>
+                    <hr style="margin:6px 0;">
+                  <% end %>
+                  <%= i.contact_info.html_safe %>
+                </div>
+              </div>
+
+
+            </div> <!-- END CELL -->
+
+            <% if ctr < (@insts.length - 1) && (iterator % 2) == 1 %></div><div class="row"><% end %> <!-- START NEW ROW -->
+
+            <% iterator = iterator + 1 %>
+
+          <% end %> <!-- END LOOP -->
+
+        </div> <!-- END ALL CELLS -->
+
+      <% end %>
+
+      <div style="text-align:center;">
+        <button type="button" class="btn btn-primary device-hide" style="margin:0;" onclick="location.href='<%= root_path %>';"><i class="glyphicon glyphicon-globe"></i> RETURN TO MAP</button>
+      </div>
+  </div>
+</div>

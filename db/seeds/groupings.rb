@@ -1,0 +1,8 @@
+Grouping.delete_all()
+Grouping.create(:name => 'Asian American Native American Pacific Islander (AANAPI)')
+Grouping.create(:name => 'Historically Black Colleges & Universities (HBCU)')
+Grouping.create(:name => 'Predominantly Black Institutions (PBI)')
+Grouping.create(:name => 'American Indian Alaskan Native Serving Institutions (AIANSI)')
+Grouping.create(:name => 'Hispanic Serving Institutions (HSI)')
+Grouping.create(:name => 'Tribal Colleges and Universities (TCU)')
+Grouping.create(:name => 'American Native Native Hawaiian (ANNH)')

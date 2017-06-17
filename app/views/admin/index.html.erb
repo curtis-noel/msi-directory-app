@@ -1,0 +1,42 @@
+<% provide(:title, "Admin".html_safe) %>
+<% content_for(:header_title, "Admin") %>
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 style="text-align:center; margin:0;">Admin</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <!--Create a table that list all the various models-->
+            <!--Allow the models to be clicked on and navigate to the index-->
+            <!--Then allow Crud operations against each record for the selected model-->
+            <table class="table table-striped table-responsive table-hover">
+              <thead>
+                <tr>
+                  <th alt="Name" title="Name">Name</th>
+                  <th alt="View Records" title="View Records">View Records</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @model_list.each do |model| %>
+                  <tr>
+                    <td>
+                      <%= model.titleize %>
+                    </td>
+                    <td>
+                      <%= link_to "View #{model} records", eval("#{model}_path"), {:class => "btn btn-primary", :role => "button"} %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

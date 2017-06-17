@@ -1,0 +1,23 @@
+<% @page_title = "Deployment Info" %>
+
+<div class="container">
+
+  <div class="row">
+    
+    <div class="col-md-12">
+      <div class="panel panel-default form-container">
+        <div class="panel-heading">
+          <h3 class="panel-title">Deployment Info</h3>
+        </div>
+        <div class="panel-body">
+          <div><strong>Deployed Commit SHA:</strong>&nbsp;&nbsp;<%= @deployed_commit.sha_or_details %></div>
+          <div><strong>Deployed Tag:</strong>&nbsp;&nbsp;<%= @deployed_tag.tag_name_or_details %></div>
+          <div><strong>Deployed Version:</strong>&nbsp;&nbsp;<%= @deployed_tag.version_or_details %></div>       
+          <div><strong>Deployment Timestamp (EST):</strong>&nbsp;&nbsp;<%= @deployment_timestamp.formatted_timestamp_or_details %></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div> 
