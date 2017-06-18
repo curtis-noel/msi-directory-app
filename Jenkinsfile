@@ -3,7 +3,7 @@ node {
             checkout scm
         }
 
-        stage('dockerize') {
+        stage('dockerization') {
 
           def app = docker.build("wolf685cln/msi-directory-${env.BRANCH_NAME}")
           docker.withRegistry('https://registry.hub.docker.com','docker-login') {
