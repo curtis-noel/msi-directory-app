@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 style="text-align:center;">
+        Region
+        <%= @region.name %>
+      </h1>
+
+      <!--Button Group-->
+      <%= render partial: 'partials/admin_btn_group', locals: {:back_url => 'regions', :new_url => '', :new => false} %>
+      <br/>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          <%= render partial: 'show_text', locals: {:label_text => @region_row_data[0], :value => @region_row_data[1] } %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

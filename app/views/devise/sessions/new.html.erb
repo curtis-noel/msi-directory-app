@@ -1,0 +1,74 @@
+<% provide(:title, "Sign In") %>
+<% content_for(:header_title, "Sign In") %>
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Sign In</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div id="login-warning-banner">
+        <p><span class="warning">WARNING</span> - You are accessing a U.S. Government information system, which includes (1) this computer, (2) this computer network, (3) all computers connected to this network and (4) all devices and storage media attached to this network or to a computer on this network.  This information system is provided for U.S. Government-authorized use only. </p>
+
+        <p>Unauthorized or improper use or access of this system may result in disciplinary action, as well as civil and criminal penalties.</p>
+
+        <p>By using this information system, you understand and consent to the following:</p>
+
+        <ol>
+          <li>You have no reasonable expectation of privacy when you use this information system; this includes any communications or data transiting, stored on, originated from or directed to this information system.  At any time, and for any lawful government purpose, the government may monitor, intercept, search and seize any communication or data transiting, stored on, originated from or directed to or from this information system.</li>
+          <li>The government may disclose or use any communications or data transiting, stored on, originated from or directed to or from this information system for any lawful government purpose.</li>
+          <li>You are NOT authorized to process classified information on this information system.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-4 col-md-push-8">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3 style="margin-top:0;">Account Guidance Here</h3>
+          <p>Login with your Windows password.  If you need to reset your password, contact the help desk at <strong>1-888-220-5228</strong>.<p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8 col-md-pull-4">
+      <div class="panel panel-default form-container">
+        <div class="panel-heading">
+          <h3 class="panel-title">Your Credentials</h3>
+        </div>
+        <div class="panel-body">
+
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="field form-group"><%= f.label :username %><br />
+            <%= f.text_field :username, autofocus: true, :class => "form-control" %></div>
+
+             <div class="field form-group"><%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "off", :class => "form-control" %></div>
+
+            <div><%= check_box_tag :agree_to_terms %> <%= label_tag :agree_to_terms, "I have read, understand and agree to the above terms and conditions." %></div>
+
+            <div><%= f.submit "Sign In" %></div>
+          <% end %>
+
+          <%= render "devise/shared/links" %>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<script language="javascript">
+  $(document).ready(function() {
+    setTimeout(function() {$('input#user_email').focus();}, 100);
+  });
+</script>

@@ -1,0 +1,52 @@
+<% provide(:title, "Institutions") %>
+<% content_for(:header_title, "Institutions") %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 style="text-align:center;">
+				Institutions
+			</h1>
+			<!--Button Group-->
+			<%= render partial: 'partials/admin_btn_group', locals: {:back_url => 'admin', :new_url => 'institutions', :new => true} %>
+			<br/>
+			<% if @institutions.length > 0 %>
+			<div class="panel panel-default">
+				<div class="panel-body table-responsive">
+					<table class="table table-striped table-hover table-condensed">
+
+						<thead>
+							<tr>
+								<th alt="Name" title="Name">Name</th>
+								<th alt="Email" title="Email">Email</th>
+								<th alt="State" title="State">State</th>
+								<th alt="Grouping" title="Grouping">Grouping</th>
+								<th alt="USCIS" title="USCIS">USCIS</th>
+								<th alt="Edit" title="Edit">Edit</th>
+								<th alt="Edit" title="Edit">Delete</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<% @institutions.each do |institution| %>
+							<tr>
+								<% @institution_records.each do |record| %>
+									<% if record != "contact_info" %>
+										<%= render partial: 'index_table_record', locals: {:institution => institution, :value => record } %>
+									<% end %>
+								<% end %>
+								<td><%= link_to "Edit", edit_institution_path(institution), alt: "Edit #{institution.name}", title: "Edit #{institution.name}" %></td>
+								<td><%= link_to "Delete", institution, method: :delete, data: {confirm: 'Are you sure?' }, alt: "Delete #{institution.name}", title: "Delete #{institution.name}" %> </td>
+							</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<% else %>
+			<div class="alert alert-info" style="text-align:center;">No Institutions Found!</div>
+			<% end %>
+
+		</div>
+	</div>
+</div>

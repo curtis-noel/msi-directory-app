@@ -1,0 +1,11 @@
+<% output = eval("user.#{value}") %>
+
+<% if value == "name" %>
+<td alt="<%= output %>" title="<%= output %>">
+  <%= output %>
+</td>
+<% else %>
+<td alt="<%= output %>" title="<%= output %>" >
+  <%= output %>
+</td>
+<% end %>

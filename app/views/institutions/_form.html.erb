@@ -1,0 +1,31 @@
+<%= form_for(@institution) do |f| %>
+<% if @institution.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@institution.errors.count, "error") %> prohibited this Institution from being saved:</h2>
+	<ul>
+		<% @institution.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<!--Button Group-->
+<%= render partial: 'partials/admin_btn_group', locals: {:back_url => 'institutions', :new_url => 'institutions', :new => false} %>
+<br/>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="rows">
+			<!--Create the Fields Dynamically-->
+			<div class="row">
+				<% @institution_fields.each do |row| %>
+					<%= render partial: 'text_input', :locals => {:f => f, :object => row[0], :form_helper => row[1], :other_params => row[2] } %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="btn-group">
+	<%= f.submit :class => "btn" %>
+</div>
+<% end %>

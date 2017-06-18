@@ -1,0 +1,15 @@
+<% if value == "state_id" || value == "grouping_id" %>
+  <% output = get_state_grouping_name(value , eval("institution.#{value}")) %>
+<% else %>
+  <% output = eval("institution.#{value}") %>
+<% end %>
+
+<% if value == "name" %>
+  <td align="left" alt="<%= output %>" title="<%= output %>">
+    <%= output %>
+  </td>
+<% else %>
+  <td align="left" alt="<%= output %>" title="<%= output %>">
+    <%= output %>
+  </td>
+<% end %>

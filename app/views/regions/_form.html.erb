@@ -1,0 +1,32 @@
+<%= form_for(@region) do |f| %>
+<% if @region.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@region.errors.count, "error") %> prohibited this region from being saved:</h2>
+  <ul>
+    <% @region.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<!--Button Group-->
+<%= render partial: 'partials/admin_btn_group', locals: {:back_url => 'regions', :new_url => 'regions', :new => false} %>
+<br/>
+
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="rows">
+      <div class="row">
+        <div class="form-group col-xs-12 col-sm-6 col-md-4 ttip">
+          <%= f.label :name %><br>
+          <%= f.text_field :name %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= f.submit :class => "btn" %>
+<%# link_to 'Back', regions_path %>
+<% end %>

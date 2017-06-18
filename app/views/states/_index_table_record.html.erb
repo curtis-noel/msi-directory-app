@@ -1,0 +1,15 @@
+<% if value == "region_id" %>
+  <% output = get_region_name(eval("state.#{value}")) %>
+<% else %>
+  <% output = eval("state.#{value}") %>
+<% end %>
+
+<% if value == "name" %>
+  <td alt="<%= output %>" title="<%= output %>">
+    <%= output %>
+  </td>
+<% else %>
+  <td alt="<%= output %>" title="<%= output %>">
+    <%= output %>
+  </td>
+<% end %>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="<%= meta_description %>">
+  <meta name="author" content="<%= meta_author %>">
+  <meta name="Keywords" content="<%= meta_keywords %>">
+  <title></title>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true, type: "text/css" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <style id="antiClickjack">body{display:none !important;}</style>
+  <script type="text/javascript">
+    if (self === top) {
+      var antiClickjack = document.getElementById("antiClickjack");
+      antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+      top.location = self.location;
+    }
+  </script>
+</head>
+<body>
+  <a id="top" title="Top"></a>
+  <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to(image_tag("uscis-logo-small.png", :id => "small-uscis-logo", :alt => "", :title => ""), "/", :class => "navbar-brand logo-nav") %>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav pull-right">
+          <% if !current_page?(root_path) %>
+            <li class="hidden-sm hidden-xs"><%= link_to "Map", root_path %></li>
+          <% end %>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu <i class="glyphicon glyphicon-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Home", root_path, alt: "Home", title: "Home" %></li>
+              <li class="<%= 'active' if current_page?("/terms") %>"><%= link_to "Accessibility", "/terms", alt: "Accessibility", title: "Accessibility" %></li>
+              <li class="divider"></li>
+              <% if user_signed_in? %>
+                <li class="<%= 'active' if current_page?(admin_path) %>"><%= link_to "<i class='glyphicon glyphicon-lock' alt='Administration' title='Administration' id='Administration'></i> Administration".html_safe, admin_path  %></li>
+                <li class="<%= 'active' if current_page?(destroy_user_session_path) %>"><%= link_to "<i class='glyphicon glyphicon-lock'></i> Sign Out".html_safe, destroy_user_session_path, method: :delete  %></li>
+              <% else %>
+                <% if !current_page?(new_user_session_path) %>
+                  <li class="<%= 'active' if current_page?(new_user_session_path) %>"><%= link_to "<i class='glyphicon glyphicon-lock' alt='Sign In' title='Sign In'></i> Sign In".html_safe, new_user_session_path  %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <% if flash[:notice] %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class='alert alert-info'><%= flash[:notice] %></div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class='alert alert-danger'><%= flash[:alert] %></div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <span style="position:absolute">
+    <a id="content-start" title="Start of Main Content">&nbsp;</a>
+  </span>
+  <%= yield %>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-8">
+           <p>
+              <strong><%= site_name %>&nbsp;<%= site_version %></strong><br>
+              <span class="hidden-xs">U.S. Citizenship and Immigration Services<br></span>
+              <span class="hidden-sm hidden-md hidden-lg hidden-xl">USCIS<br></span>
+              Office of Information Technology<br>
+              Digital Innovation &amp; Development
+            </p>
+        </div>
+        <div class="col-md-4 hidden-sm hidden-xs" style="text-align:center;">
+          <p>
+            <a href="<%= terms_path %>">Terms &amp; Accessibility</a><br>
+          </p>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-4">
+          <p class="pull-right">
+            <%= link_to 'Back to Top <span class="glyphicon glyphicon-chevron-up"></span>'.html_safe, '#top', alt: 'Back to Top', title: 'Back to Top' %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <a href="#content-start" id="skip-nav">Skip to main content</a>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<p>
+	<strong><%= label_text %></strong>
+	<% if label_text == "State ID:" || label_text == "Grouping ID:" %>
+		<%= get_state_grouping_name(label_text, value) %>
+	<% else %>
+		<%= value %>
+	<% end %>
+</p>

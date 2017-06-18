@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 style="text-align:center;">
+        Grouping
+        <%= @grouping.name %>
+      </h1>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          <%= render partial: 'show_text', locals: {:label_text => @grouping_row_data[0], :value => @grouping_row_data[1] } %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

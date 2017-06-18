@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 style="text-align:center;">
+        User
+        <%# @user.name %>
+      </h1>
+
+      <%= render partial: 'partials/admin_btn_group', locals: {:back_url => 'users', :new_url => 'users', :new => false} %>
+      <br/>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <% @user_row_data.each do |record| %>
+            <%= render partial: 'show_text', locals: {:label_text => record[0], :value => record[1] } %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

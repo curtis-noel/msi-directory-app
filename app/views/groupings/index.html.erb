@@ -1,0 +1,45 @@
+<% provide(:title, "Groupings") %>
+<% content_for(:header_title, "Groupings") %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 style="text-align:center;">
+        Groupings
+      </h1>
+      <!--Button Group-->
+      <%= render partial: 'partials/admin_btn_group', locals: {:back_url => 'admin', :new_url => 'groupings', :new => true} %>
+      <br/>
+      <% if @groupings.length > 0 %>
+      <div class="panel panel-default">
+        <div class="panel-body table-responsive">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th alt="Name" title="Name">Name</th>
+                <th alt="Edit" title="Edit">Edit</th>
+                <th alt="Delete" title="Delete">Delete</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @groupings.each do |grouping| %>
+                <tr>
+                  <% @grouping_records.each do |record| %>
+                    <%= render partial: 'index_table_record', locals: {:grouping => grouping, :value => record } %>
+                  <% end %>
+                  <td><%= link_to "Edit", edit_grouping_path(grouping), alt: "Edit #{grouping.name}", title: "Edit #{grouping.name}"%></td>
+                  <td><%= link_to "Delete", grouping, method: :delete, data: {confirm: 'Are you sure?' }, id: "delete_record_#{grouping.id}", alt: "Delete #{grouping.name}", title: "Delete #{grouping.name}" %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <% else %>
+      <div class="alert alert-info" style="text-align:center;">No Users Found!</div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
