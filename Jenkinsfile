@@ -1,11 +1,13 @@
 node {
         stage('build') {
             checkout scm
+            sh 'ENV RAILS_ENV ${JOB_NAME} >> Dockerfile'
         }
+
 
         stage('dockerization') {
 
-          def app = docker.build("wolf685cln/msi-directory-${JOB_NAME}")
+          def app = docker.build("wolf685cln/${JOB_NAME}")
           docker.withRegistry('https://registry.hub.docker.com','docker-login') {
               app.push 'latest'
           }
