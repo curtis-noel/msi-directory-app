@@ -5,7 +5,7 @@ node {
 
         stage('dockerization') {
 
-          def app = docker.build("wolf685cln/msi-directory-${environment}")
+          def app = docker.build("wolf685cln/msi-directory-${JOB_NAME}")
           docker.withRegistry('https://registry.hub.docker.com','docker-login') {
               app.push 'latest'
           }
