@@ -1,7 +1,7 @@
 node {
         stage('build') {
             checkout scm
-            sh 'echo ENV RAILS_ENV msi-directory-app-dev >> Dockerfile'
+            sh 'echo ENV RAILS_ENV ${JOB_NAME} >> Dockerfile'
         }
 
 
