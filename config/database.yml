@@ -18,16 +18,6 @@ msi-directory-app-test:
   password: ism
   min_messages: notice
 
-msi-directory-app-stage:
-    <<: *default
-    adapter: postgresql
-    host: localhost
-    port: 5432
-    database: msi_directory_stage
-    username: msi
-    password: ism
-    min_messages: notice
-
 msi-directory-app-prod:
   <<: *default
   adapter: postgresql
