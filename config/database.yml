@@ -11,22 +11,12 @@ msi-directory-app-dev:
 msi-directory-app-test:
   <<: *default
   adapter: postgresql
-  host: localhost
+  host: postgres.curtisnoel.local
   port: 5432
   database: msi_directory_test
   username: msi
   password: ism
   min_messages: notice
-
-msi-directory-app-stage:
-    <<: *default
-    adapter: postgresql
-    host: localhost
-    port: 5432
-    database: msi_directory_stage
-    username: msi
-    password: ism
-    min_messages: notice
 
 msi-directory-app-prod:
   <<: *default
