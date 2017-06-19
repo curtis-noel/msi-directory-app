@@ -21,7 +21,7 @@ msi-directory-app-test:
 msi-directory-app-prod:
   <<: *default
   adapter: postgresql
-  host: localhost
+  host: postgres.curtisnoel.local
   port: 5432
   database: msi_directory_prod
   username: msi
