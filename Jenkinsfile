@@ -1,34 +1,19 @@
 node {
-        stage("build") {
+        stage('build') {
             checkout scm
-
-            docker.image('ruby:2.3.1').inside {
-              stage("install bundler") {
-                sh "gem install bundler --no-rdoc --no-ri"
-              }
-
-              stage("installing dependencies") {
-                sh "set RAILS_ENV=development"
-                sh "bundle install"
-              }
-
-              stage("initializing database") {
-                sh "rake db:drop && rake db:create && rake db:migrate && rake db:seed"
-              }
-
-              stage("Build package") {
-                sh "rake build"
-              }
-
-              stage("archive package") {
-                archive (includes: 'pkg/*.deb')
-              }
-
-           }
-
+            sh 'echo ENV RAILS_ENV ${JOB_NAME} >> Dockerfile'
         }
 
-        // Clean up workspace
-        step([$class: 'WsCleanup'])
 
+        stage('dockerization') {
+
+          def app = docker.build("wolf685cln/${JOB_NAME}")
+          docker.withRegistry('https://registry.hub.docker.com','docker-login') {
+              app.push 'latest'
+          }
+        }
+
+        stage('cleanup') {
+          step([$class: 'WsCleanup'])
+        }
 }
