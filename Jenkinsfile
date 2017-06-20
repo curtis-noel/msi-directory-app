@@ -4,7 +4,6 @@ node {
             sh 'echo ENV RAILS_ENV ${JOB_NAME} >> Dockerfile'
         }
 
-
         stage('dockerization') {
 
           def app = docker.build("wolf685cln/${JOB_NAME}")

@@ -1,0 +1,6 @@
+Migrating to DeviseCreateUsers (20140902114912)
+Migrating to CreateInstitutions (20140902121919)
+Migrating to CreateRegions (20140902122219)
+Migrating to CreateStates (20140902122239)
+Migrating to CreateNotices (20140903140720)
+Migrating to CreateGroupings (20140922130412)
