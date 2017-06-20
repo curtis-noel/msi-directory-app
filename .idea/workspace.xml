@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7fbd28aa-ab30-4168-bde4-ef9d28db5cee" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.yml" afterPath="$PROJECT_DIR$/config/database.yml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,8 +49,8 @@
       <file leaf-file-name="database.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/database.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="20" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="38" selection-end-column="22" />
+            <state relative-caret-position="272">
+              <caret line="16" column="15" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="38" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -692,7 +691,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1497992049416</updated>
-      <workItem from="1497992053150" duration="3653000" />
+      <workItem from="1497992053150" duration="3903000" />
     </task>
     <task id="LOCAL-00001" summary="added new env">
       <created>1497992527615</created>
@@ -708,11 +707,18 @@
       <option name="project" value="LOCAL" />
       <updated>1497995595912</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added new env">
+      <created>1497995844941</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1497995844941</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3653000" />
+    <option name="totallyTimeSpent" value="3903000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
@@ -926,8 +932,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/database.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="20" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="38" selection-end-column="22" />
+        <state relative-caret-position="272">
+          <caret line="16" column="15" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="38" selection-end-column="22" />
           <folding />
         </state>
       </provider>
