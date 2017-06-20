@@ -4,6 +4,10 @@ node {
             sh 'echo ENV RAILS_ENV ${JOB_NAME} >> Dockerfile'
         }
 
+        stage('brakeman') {
+          gem install brakeman --no-ri --no-rdoc &&
+          brakeman -o brakeman-output.json --no-progress --separate-models
+        }
 
         stage('dockerization') {
 
