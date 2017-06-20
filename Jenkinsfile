@@ -5,7 +5,7 @@ node {
         }
 
         stage('brakeman') {
-          sh 'gem install brakeman --no-ri --no-rdoc && brakeman -o brakeman-output.json --no-progress --separate-models"
+          sh 'gem install brakeman --no-ri --no-rdoc && brakeman -o brakeman-output.json --no-progress --separate-models'
         }
 
         stage('dockerization') {
