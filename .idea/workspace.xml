@@ -779,7 +779,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1498009002439</updated>
-      <workItem from="1498009003826" duration="4031000" />
+      <workItem from="1498009003826" duration="4042000" />
     </task>
     <task id="LOCAL-00001" summary="refactored db info&#10;">
       <created>1498009998778</created>
@@ -830,11 +830,18 @@
       <option name="project" value="LOCAL" />
       <updated>1498015125000</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Testing complete CICD part II&#10;">
+      <created>1498015137504</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1498015137504</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4031000" />
+    <option name="totallyTimeSpent" value="4042000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="0" />
