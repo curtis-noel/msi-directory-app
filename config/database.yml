@@ -3,7 +3,7 @@ default: &default
   pool: 5
   timeout: 5000
 
-msi-directory-app-dev:
+development:
   <<: *default
   adapter: sqlite3
   database: db/development.sqlite3
@@ -22,6 +22,16 @@ msi-directory-app-prod:
   <<: *default
   adapter: postgresql
   host: 172.31.52.93
+  port: 5432
+  database: msi_directory_prod
+  username: msi
+  password: ism
+  min_messages: notice
+
+msi-directory-app-pentest:
+  <<: *default
+  adapter: postgresql
+  host: 172.31.55.82
   port: 5432
   database: msi_directory_prod
   username: msi
