@@ -7,5 +7,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://172.31.55.82:5432/msi_directory_prod</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="msi_directory_prod@172.31.52.93" uuid="d0c59e7c-ac73-44b4-8dcd-515f528d9df3">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://172.31.52.93:5432/msi_directory_prod</jdbc-url>
+    </data-source>
   </component>
 </project>
