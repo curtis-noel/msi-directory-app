@@ -3,7 +3,7 @@ default: &default
   pool: 5
   timeout: 5000
 
-development:
+msi-directory-app-dev:
   <<: *default
   adapter: sqlite3
   database: db/development.sqlite3
