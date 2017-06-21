@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cc364d9-c046-424d-8a46-f15d9a873530" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/f9decfde-a664-4c00-92bf-18f02216a3de/_metadata_/metadata" afterPath="$PROJECT_DIR$/.idea/dataSources/f9decfde-a664-4c00-92bf-18f02216a3de/_metadata_/metadata" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/f9decfde-a664-4c00-92bf-18f02216a3de/_metadata_/metadata.keystream" afterPath="$PROJECT_DIR$/.idea/dataSources/f9decfde-a664-4c00-92bf-18f02216a3de/_metadata_/metadata.keystream" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/f9decfde-a664-4c00-92bf-18f02216a3de/_metadata_/metadata.keystream.len" afterPath="$PROJECT_DIR$/.idea/dataSources/f9decfde-a664-4c00-92bf-18f02216a3de/_metadata_/metadata.keystream.len" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/f9decfde-a664-4c00-92bf-18f02216a3de/_metadata_/metadata.len" afterPath="$PROJECT_DIR$/.idea/dataSources/f9decfde-a664-4c00-92bf-18f02216a3de/_metadata_/metadata.len" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/f9decfde-a664-4c00-92bf-18f02216a3de/_metadata_/metadata_i" afterPath="$PROJECT_DIR$/.idea/dataSources/f9decfde-a664-4c00-92bf-18f02216a3de/_metadata_/metadata_i" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/f9decfde-a664-4c00-92bf-18f02216a3de/_metadata_/metadata_i.len" afterPath="$PROJECT_DIR$/.idea/dataSources/f9decfde-a664-4c00-92bf-18f02216a3de/_metadata_/metadata_i.len" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/pages/home.html.erb" afterPath="$PROJECT_DIR$/app/views/pages/home.html.erb" />
     </list>
@@ -717,7 +710,7 @@
       <option name="presentableId" value="Default" />
       <updated>1498009002439</updated>
       <workItem from="1498009003826" duration="4641000" />
-      <workItem from="1498052313125" duration="2748000" />
+      <workItem from="1498052313125" duration="2924000" />
     </task>
     <task id="LOCAL-00001" summary="refactored db info&#10;">
       <created>1498009998778</created>
@@ -782,11 +775,18 @@
       <option name="project" value="LOCAL" />
       <updated>1498015148980</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="live">
+      <created>1498056211616</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1498056211616</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7389000" />
+    <option name="totallyTimeSpent" value="7565000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="176" y="182" width="1026" height="546" extended-state="0" />
@@ -834,7 +834,8 @@
     <MESSAGE value="refactored db info&#10;" />
     <MESSAGE value="Testing complete CICD&#10;" />
     <MESSAGE value="Testing complete CICD part II&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing complete CICD part II&#10;" />
+    <MESSAGE value="live" />
+    <option name="LAST_COMMIT_MESSAGE" value="live" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

@@ -44,8 +44,8 @@
 <script>
   function drawMaps() {
     $('.map_img').usmap({
-      stateStyles: {fill: '#bfe'},
-      stateHoverStyles: {fill: '#aaa'},
+      stateStyles: {fill: '#bbb'},
+      stateHoverStyles: {fill: '#eee'},
       showLabels: true,
       stateSpecificStyles: {
         <% @states.each do |s| %>'<% if institution_count(s.id) > 0 %><%= s.abbreviation %><% end %>': {fill: '#FFFF80'}, <% end %>
